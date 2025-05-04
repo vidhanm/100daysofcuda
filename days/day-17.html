@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Day 17 of 100 Days of CUDA - Day 17 Content">
+    <meta name="theme-color" content="#4361ee">
+    <title>Day 17: Day 17 Content - 100 Days of CUDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <style>
+        /* Add specific styles for code display */
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+        
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            pre, code {
+                font-size: 0.85rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Days</h2>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+                <nav id="days-navigation">
+                    <!-- Day links will be generated here -->
+                    <div class="days-list-placeholder">Loading...</div>
+                </nav>
+            </aside>
+            
+            <main>
+                <!-- Day content -->
+                <div class="day-content">
+                    <h2>Day 17</h2><br><p>#### Code: `vec_cublas.cu`</p><h4>Summary:</h4><p>Today, I implemented vector addition using the cuBLAS library in CUDA. By leveraging the optimized linear algebra routines provided by cuBLAS, this implementation achieves highly efficient computation of the vector addition operation `C = A + B` for two input vectors `A` and `B`. The addition was performed using the `cublasSaxpy` function, which computes scaled vector addition.</p><br><h4>Key Concepts Implemented:</h4><ul><li>Used the `cublasSaxpy` function to perform the vector addition in the format `C = alpha * A + B` where `alpha` is a scaling factor. In this case, `alpha` was set to `1.0` to achieve the simple addition of `A` and `B`.</li><li>Managed the cuBLAS library handle for the operation.</li></ul><br><hr><br><h4>Learned:</h4><ul><li>**cuBLAS Basics:**  </li><li style="margin-left: 20px;">Gained an introduction to the cuBLAS library and its capabilities for high-performance linear algebra operations.  </li><li style="margin-left: 20px;">Learned how to use cuBLAS functions like `cublasSaxpy` for vector addition and understood its parameters.  </li></ul><br><li>**cuBLAS Handle Management:**  </li><li style="margin-left: 20px;">Understood how to create and destroy a cuBLAS handle using `cublasCreate` and `cublasDestroy`. This is critical for managing state across cuBLAS calls.</li></ul><br><li>**Functionality of `cublasSaxpy`:**  </li><li style="margin-left: 20px;">Reviewed the underlying algorithm and implementation of the AXPY operation, which computes `y = a*x + y` for real vectors `x` and `y` and scalar `a`.</li></ul><br><hr>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
+        </footer>
+    </div>
+    
+    <script src="../js/app.js"></script>
+</body>
+</html>

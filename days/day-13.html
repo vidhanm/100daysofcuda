@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Day 13 of 100 Days of CUDA - Day 13 Content">
+    <meta name="theme-color" content="#4361ee">
+    <title>Day 13: Day 13 Content - 100 Days of CUDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <style>
+        /* Add specific styles for code display */
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+        
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            pre, code {
+                font-size: 0.85rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Days</h2>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+                <nav id="days-navigation">
+                    <!-- Day links will be generated here -->
+                    <div class="days-list-placeholder">Loading...</div>
+                </nav>
+            </aside>
+            
+            <main>
+                <!-- Day content -->
+                <div class="day-content">
+                    <h2>Day 13</h2><p>I coded a Breadth first search optimized kernel, check this for more details: <a href="./day%2013/Bfs/README.md" target="_blank">BFS</a> .</p><br><p>I also coded  Gelu activation kernel, check this for more details: <a href="./day%2013/Gelu/README.md" target="_blank">Gelu</a> .</p><br><p>And also coded a full linear layer that treats batches using cublas: <a href="./day%2013/Glu/README.md" target="_blank">Linear_kernel</a> .</p><br><hr><br><h3>Reading:</h3><ul><li>Read **Chapter 12** of the PMPP book.  </li><li style="margin-left: 20px;">Explored parallel patterns for graph searches, covering:</li><p>    - Background on graph structures and traversal mechanisms.</p><p>    - Detailed sections on implementing both sequential and parallel BFS functions.</p><p>    - Insights into optimizing graph traversal performance, including memory bandwidth considerations and load balancing strategies in parallel algorithms.</p><li>Read **Chapter 13** of the PMPP book.</li><li style="margin-left: 20px;">Learned about the fundamentals of CUDA Dynamic Parallelism, including:</li><p>    - The basics and overview of dynamic parallelism in CUDA.</p><p>    - How memory visibility works, especially in the context of different memory types (global, shared, local).</p><p>    - Memory management strategies and the impact of nesting depth on kernel launches.</p><p>    - Synchronization techniques, streams, and events for managing concurrent operations within dynamic kernels.</p><p>    - Studied a more complex example about Bezier curve calculations both with and without dynamic parallelism, enhancing my understanding of recursive  </p><hr><br><p>### Future Plans:</p><li>Optimize the BFS implementation using hierarchical queues for better memory usage and performance.</li><li>Explore additional enhancements and optimizations discussed in Chapter 12 to refine the BFS algorithm further.</li><li>Prepare a performance comparison between CPU and GPU implementations in the subsequent days.</li></ul><br><hr>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
+        </footer>
+    </div>
+    
+    <script src="../js/app.js"></script>
+</body>
+</html>

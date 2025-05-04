@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "name": "100-days-of-cuda",
+  "rewrites": [
+    { "source": "/days/:day", "destination": "/days/:day.html" }
+  ],
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800, immutable"
+        }
+      ]
+    }
+  ],
+  "github": {
+    "enabled": true,
+    "silent": true
+  }
+} 

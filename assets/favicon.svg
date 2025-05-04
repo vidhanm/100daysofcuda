@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <style>
+    .blue { fill: #4361ee; }
+    .dark { fill: #3a56d4; }
+    .bg { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .blue { fill: #4cc9f0; }
+      .dark { fill: #4895ef; }
+      .bg { fill: #1e1e1e; }
+    }
+  </style>
+  <rect width="32" height="32" rx="8" class="bg" />
+  <g transform="translate(2, 2)">
+    <path class="blue" d="M2 2h26v8H2z" />
+    <path class="dark" d="M2 12h12v6H2z" />
+    <path class="blue" d="M16 12h12v6H16z" />
+    <path class="dark" d="M2 20h26v8H2z" />
+  </g>
+</svg> 

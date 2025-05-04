@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Day 15 of 100 Days of CUDA - flash_attention_backprop.cu">
+    <meta name="theme-color" content="#4361ee">
+    <title>Day 15: flash_attention_backprop.cu - 100 Days of CUDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <style>
+        /* Add specific styles for code display */
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+        
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            pre, code {
+                font-size: 0.85rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Days</h2>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+                <nav id="days-navigation">
+                    <!-- Day links will be generated here -->
+                    <div class="days-list-placeholder">Loading...</div>
+                </nav>
+            </aside>
+            
+            <main>
+                <!-- Day content -->
+                <div class="day-content">
+                    <h2>Day 15</h2><br><p>#### File: `flash_attention_backprop.cu`</p><h4>Summary:</h4><p>Implemented the backpropagation for Flash Attention in CUDA, continuing from the forward pass developed earlier. The backpropagation step computes the gradients required for training the attention mechanism. However, a small issue arose where some of the gradients are outputting as zero at certain points, which will be addressed and fixed in the coming days.</p><br><h4>Learned:</h4><ul><li>Explored the process of backpropagation in the context of Flash Attention, including the calculation of gradients for the attention weights and input matrices.</li><li>Worked on integrating gradient calculation with memory optimization techniques to maintain efficiency, consistent with the original forward pass.</li><li>Identified potential issues related to numerical stability when dealing with gradient flow in CUDA, specifically in the attention layer.</li></ul><br><hr><br><p>#### File: `cnn.cu`</p><h4>Summary:</h4><p>Developed a Convolutional Neural Network (CNN) implementation in CUDA, including both forward and backward passes with pooling layers. Used the unrolling trick for improved performance in the backward pass, optimizing the matrix operations involved.</p><br><h4>Learned:</h4><ul><li>Implemented the core components of a CNN in CUDA, including convolutions, activations, pooling layers, and backpropagation.</li><li>Utilized the unrolling trick to optimize it, improving the performance of matrix multiplications and gradient calculations.</li><li>Gained deeper understanding of the computational requirements for CNN training on GPUs and the importance of efficient memory access patterns and parallelism in deep learning.</li></ul><br><hr><br><h3>Reading:  </h3><li>**Chapter 15:** *Application Case Study—Molecular Visualization and Analysis*  </li><li style="margin-left: 20px;">Delved into the background and practical aspects of molecular visualization in parallel computing.  </li><li style="margin-left: 20px;">Learned about the importance of thread granularity adjustments and memory coalescing in visualizing large-scale molecular structures using CUDA.</li></ul><br><li>**Chapter 16:** *Application Case Study—Machine Learning*  </li><li style="margin-left: 20px;">Focused on Convolutional Neural Networks (ConvNets) and their implementation in CUDA.  </li><li style="margin-left: 20px;">Covered key concepts such as basic layers, backpropagation, and the reduction of convolutional layers to matrix multiplication for optimization.  </li><li style="margin-left: 20px;">Explored the cuDNN library and its use in accelerating deep learning operations.</li></ul><br><li>**Chapter 17:** *Parallel Programming and Computational Thinking*  </li><li style="margin-left: 20px;">Studied the core principles of parallel computing, including problem decomposition, algorithm selection, and computational thinking.  </li><li style="margin-left: 20px;">Focused on strategies for optimizing memory locality and shared memory usage in parallel applications.</li></ul><br><hr>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
+        </footer>
+    </div>
+    
+    <script src="../js/app.js"></script>
+</body>
+</html>

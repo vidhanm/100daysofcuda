@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page Not Found - 100 Days of CUDA">
+    <title>404 - Page Not Found - 100 Days of CUDA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg+xml">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            margin: 0;
+            color: var(--primary-color);
+            opacity: 0.6;
+        }
+        .error-message {
+            font-size: 2rem;
+            margin: 1rem 0 2rem;
+        }
+        .home-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .home-button:hover {
+            background-color: var(--primary-hover);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <main style="width: 100%;">
+                <div class="error-container">
+                    <h2 class="error-code">404</h2>
+                    <p class="error-message">Page Not Found</p>
+                    <p>The page you're looking for doesn't exist or has been moved.</p>
+                    <a href="index.html" class="home-button">Back to Home</a>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Set copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Initialize theme based on user preference or localStorage
+        const themeToggle = document.getElementById('theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme preference or use the system preference
+        const currentTheme = localStorage.getItem('theme') || 
+                            (prefersDarkScheme.matches ? 'dark' : 'light');
+        
+        // Set the theme
+        document.body.setAttribute('data-theme', currentTheme);
+        
+        // Add event listener for theme toggle button
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+        });
+    </script>
+</body>
+</html> 

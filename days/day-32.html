@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Day 32 of 100 Days of CUDA - sgemm.cpp`, `sgemm.h`, `kernel3_registers.cpp`, `kernel3_registers.h">
+    <meta name="theme-color" content="#4361ee">
+    <title>Day 32: sgemm.cpp`, `sgemm.h`, `kernel3_registers.cpp`, `kernel3_registers.h - 100 Days of CUDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <style>
+        /* Add specific styles for code display */
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+        
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            pre, code {
+                font-size: 0.85rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Days</h2>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+                <nav id="days-navigation">
+                    <!-- Day links will be generated here -->
+                    <div class="days-list-placeholder">Loading...</div>
+                </nav>
+            </aside>
+            
+            <main>
+                <!-- Day content -->
+                <div class="day-content">
+                    <h2>Day 32</h2><h3>File: `sgemm.cpp`, `sgemm.h`, `kernel3_registers.cpp`, `kernel3_registers.h`</h3><h4>Summary:</h4><p>Implemented and optimized SGEMM (Single-precision General Matrix Multiplication) for AMD GPUs with register tiling. The implementation achieved impressive performance metrics, particularly for small matrix sizes.</p><br><h4>Performance Highlights:</h4><ul><li>Exceptional performance for small matrices (N=1024):</li><li style="margin-left: 20px;">Custom implementation: 2029.76 GFLOPS</li><li style="margin-left: 20px;">~49x faster than rocBLAS for small matrices</li><li>Competitive performance for medium/large matrices:</li><li style="margin-left: 20px;">Up to 18565.31 GFLOPS at N=4096</li><li style="margin-left: 20px;">Efficient scaling up to 4096x4096 matrices</li></ul><br><h4>Learned:</h4><ul><li>Optimization techniques for matrix multiplication on AMD GPUs</li><li>Register-level optimizations for improved performance</li><li>Trade-offs between custom implementations and vendor libraries</li><li>Performance scaling characteristics across different matrix sizes</li></ul><br><h3>Reading:</h3><li>Analyzed benchmark results comparing custom SGEMM implementation with rocBLAS</li><li>Studied performance characteristics and scaling patterns for different matrix sizes</li><li>Following this article: https://seb-v.github.io/optimization/update/2025/01/20/Fast-GPU-Matrix-multiplication.html</li><hr>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
+        </footer>
+    </div>
+    
+    <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Day 11 of 100 Days of CUDA - sparse_MatrixVecMult_Hybrid_ELL_COO.cu">
+    <meta name="theme-color" content="#4361ee">
+    <title>Day 11: sparse_MatrixVecMult_Hybrid_ELL_COO.cu - 100 Days of CUDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <style>
+        /* Add specific styles for code display */
+        pre {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        h2, h3, h4 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+        }
+        
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            pre, code {
+                font-size: 0.85rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.3rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Days</h2>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+                <nav id="days-navigation">
+                    <!-- Day links will be generated here -->
+                    <div class="days-list-placeholder">Loading...</div>
+                </nav>
+            </aside>
+            
+            <main>
+                <!-- Day content -->
+                <div class="day-content">
+                    <h2>Day 11</h2><h3>File: `sparse_MatrixVecMult_Hybrid_ELL_COO.cu`</h3><h4>Summary:</h4><p>Completed the implementation of a highly optimized sparse matrix-vector multiplication (SpMV) algorithm using a hybrid approach that combines ELL (Ellpack) and COO (Coordinate) formats. This implementation focuses on minimizing memory overhead while maximizing computational efficiency across the sparsity of the input matrix.</p><br><h4>Learned:</h4><ul><li>Explored the principles and benefits of different sparse matrix representations, namely ELL and COO formats.</li><li>Implemented hybrid techniques to optimize performance by balancing memory access patterns and ensuring efficient data locality.</li><li>Benchmarked the performance of the CUDA implementation against PyTorch to evaluate the efficiency and correctness of the optimized SpMV algorithm.</li></ul><br><h3>Reading:  </h3><li>Completed **Chapter 10** of the PMPP book.  </li><li style="margin-left: 20px;">Gained insights into parallel patterns for sparse matrix computations, focusing on the background of sparse data handling, parallel SpMV using CSR formats, and padding and transposition techniques for optimization.  </li><li style="margin-left: 20px;">Learned about utilizing hybrid approaches to manage padding effectively and methods for sorting and partitioning to enhance regularization in sparse data.</li></ul><br><h3>File: `benchmark.py`</h3><h4>Summary:</h4><p>Developed a benchmarking script to evaluate the performance of the custom CUDA SpMV implementation against PyTorch's built-in functions. This benchmark facilitates comparative analysis of execution times and ensures that the implementation meets expected performance standards.</p><br><h3>Blog:  </h3><li>Wrote a blog post titled **"Learning CUDA with a Weak GPU or No GPU at All: Yes, You Can!"**  </li><li style="margin-left: 20px;">Addressed common misconceptions regarding GPU programming and provided practical tips for learners with limited hardware resources. The blog offers insights on optimizing CPU-based implementations and highlights methods to learn CUDA fundamentals without direct access to a powerful GPU.</li></ul><br><h4>Link to Blog:</h4><p><a href="https://hamdi.bearblog.dev/learning-cuda-with-a-weak-gpu-or-no-gpu-at-all-yes-you-can/" target="_blank">Learning CUDA with a Weak GPU or No GPU at All: Yes, You Can!</a></p>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
+        </footer>
+    </div>
+    
+    <script src="../js/app.js"></script>
+</body>
+</html>
