@@ -1,9 +1,9 @@
 {
   "version": 2,
   "name": "100-days-of-cuda",
-  "rewrites": [
-    { "source": "/", "destination": "/landing.html" },
-    { "source": "/days/:day", "destination": "/days/:day.html" }
+  "routes": [
+    { "src": "^/$", "dest": "/landing.html" },
+    { "src": "/days/day-(\\d+)$", "dest": "/days/day-$1.html" }
   ],
   "trailingSlash": false,
   "headers": [
