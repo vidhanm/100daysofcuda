@@ -3,186 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="100 Days of CUDA - Master CUDA programming with daily challenges and examples">
+    <meta name="description" content="100 Days of CUDA - Learn CUDA programming step by step with daily challenges and examples">
     <meta name="theme-color" content="#4361ee">
-    <title>100 Days of CUDA - Master GPU Programming</title>
+    <title>100 Days of CUDA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/landing.css">
     <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-    <div class="landing-container">
-        <header class="landing-header">
+    <div class="container">
+        <header>
             <div class="header-content">
                 <h1>100 Days of CUDA</h1>
-                <div class="nav-links">
-                    <a href="#features">Features</a>
-                    <a href="#benefits">Benefits</a>
-                    <a href="#curriculum">Curriculum</a>
-                    <a href="index.html" class="nav-button">Dashboard</a>
-                    <button id="theme-toggle" aria-label="Toggle dark/light mode">
-                        <span class="theme-icon"></span>
-                    </button>
-                </div>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
             </div>
         </header>
-
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Master CUDA Programming in 100 Days</h2>
-                <p>Learn GPU programming with practical CUDA examples through daily challenges and interactive coding environments</p>
-                <div class="hero-buttons">
-                    <a href="index.html" class="hero-button primary-button">Start Learning</a>
-                    <a href="#curriculum" class="hero-button secondary-button">View Curriculum</a>
+        
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Days</h2>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="menu-icon"></span>
+                    </button>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="gpu-animation">
-                    <div class="gpu-grid">
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
-                        <div class="gpu-core"></div>
+                <nav id="days-navigation">
+                    <!-- Day links will be generated here -->
+                    <div class="days-list-placeholder">Loading...</div>
+                </nav>
+            </aside>
+            
+            <main>
+                <div class="welcome-card float-animation">
+                    <h2>Welcome to 100 Days of CUDA!</h2>
+                    <p>Master CUDA programming by completing one challenge each day for 100 days.</p>
+                    <p>Each day builds upon the previous one, taking you from basic CUDA concepts to advanced parallel programming techniques.</p>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 16%;"></div>
+                    </div>
+                    <p><strong>Progress:</strong> 16 days completed (16%)</p>
+                    
+                    <a href="days/day-01.html" class="primary-button">Start Day 1</a>
+                </div>
+                
+                <div class="about-section">
+                    <h3>About This Challenge</h3>
+                    <p>The 100 Days of CUDA challenge is designed to help you learn CUDA programming through daily practice. Each day includes:</p>
+                    <ul>
+                        <li>A specific CUDA programming challenge</li>
+                        <li>Practical code examples</li>
+                        <li>Interactive environments to test your code</li>
+                    </ul>
+                    <p>Track your progress as you advance through increasingly complex CUDA concepts.</p>
+                </div>
+                
+                <div class="days-section">
+                    <div class="section-header">
+                        <h3>Browse All Days</h3>
+                        <div class="view-options">
+                            <button id="list-view" class="view-toggle" aria-label="List view">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                </svg>
+                            </button>
+                            <button id="grid-view" class="view-toggle active" aria-label="Grid view">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="14" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="days-grid" class="days-grid">
+                        <!-- Day cards will be loaded here -->
+                        <div class="day-card">
+                            <div class="day-card-header">Day 01</div>
+                            <div class="day-card-body">
+                                <h4 class="day-card-title">vectadd.cu</h4>
+                                <p class="day-card-description">Implemented vector addition by writing a simple CUDA program. Explored how to launch a kernel to perform a parallelized addition of two arrays.</p>
+                            </div>
+                            <div class="day-card-footer">
+                                <a href="days/day-01.html" class="view-day-btn">View Day</a>
+                            </div>
+                        </div>
+                        
+                        <div class="day-card">
+                            <div class="day-card-header">Day 02</div>
+                            <div class="day-card-body">
+                                <h4 class="day-card-title">MatrixAdd.cu</h4>
+                                <p class="day-card-description">Created a matrix addition program using CUDA. Learned to work with 2D arrays and extended the vector addition concept to matrices.</p>
+                            </div>
+                            <div class="day-card-footer">
+                                <a href="days/day-02.html" class="view-day-btn">View Day</a>
+                            </div>
+                        </div>
+                        
+                        <div class="day-card">
+                            <div class="day-card-header">Day 03</div>
+                            <div class="day-card-body">
+                                <h4 class="day-card-title">Matrix_vec_mult.cu</h4>
+                                <p class="day-card-description">Implemented matrix-vector multiplication in CUDA. Explored optimizing memory access patterns and thread cooperation.</p>
+                            </div>
+                            <div class="day-card-footer">
+                                <a href="days/day-03.html" class="view-day-btn">View Day</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center" style="margin-top: 2rem;">
+                        <a href="days/day-01.html" class="primary-button">Start the Challenge</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <h2 class="section-title">Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>100 Daily Challenges</h3>
-                    <p>Structured learning path with progressive difficulty to build your skills day by day</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💻</div>
-                    <h3>Interactive Code Examples</h3>
-                    <p>Every challenge includes runnable code examples in Godbolt or Google Colab</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Practical Projects</h3>
-                    <p>Real-world applications and projects to showcase your CUDA programming skills</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>In-depth Explanations</h3>
-                    <p>Clear explanations of complex CUDA concepts and optimization techniques</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="benefits" class="benefits">
-            <div class="benefits-content">
-                <h2 class="section-title">Why Learn CUDA?</h2>
-                <ul class="benefits-list">
-                    <li>Unlock massive performance gains with GPU parallel computing</li>
-                    <li>Essential skill for AI, machine learning, and scientific computing</li>
-                    <li>High demand in data science and high-performance computing jobs</li>
-                    <li>Enable real-time processing for graphics and simulation applications</li>
-                    <li>Master hardware-accelerated algorithms for complex computations</li>
-                </ul>
-            </div>
-            <div class="benefits-image">
-                <div class="performance-chart">
-                    <div class="chart-bar cpu">
-                        <span class="bar-label">CPU</span>
-                        <div class="bar-fill" style="height: 30%"></div>
-                    </div>
-                    <div class="chart-bar gpu">
-                        <span class="bar-label">GPU</span>
-                        <div class="bar-fill" style="height: 90%"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="curriculum" class="curriculum">
-            <h2 class="section-title">Curriculum Overview</h2>
-            <div class="curriculum-timeline">
-                <div class="timeline-section">
-                    <h3>Days 1-25: CUDA Fundamentals</h3>
-                    <p>Learn the basics of CUDA programming, memory management, thread hierarchy, and simple parallel algorithms</p>
-                    <div class="days-preview">
-                        <div class="day-pill">Day 1: Vector Addition</div>
-                        <div class="day-pill">Day 5: Matrix Operations</div>
-                        <div class="day-pill">Day 10: Memory Optimization</div>
-                    </div>
-                </div>
-                <div class="timeline-section">
-                    <h3>Days 26-50: Intermediate Techniques</h3>
-                    <p>Explore shared memory, atomic operations, warp-level primitives, and optimization strategies</p>
-                    <div class="days-preview">
-                        <div class="day-pill">Day 30: Shared Memory</div>
-                        <div class="day-pill">Day 35: Reduction Patterns</div>
-                        <div class="day-pill">Day 45: Performance Profiling</div>
-                    </div>
-                </div>
-                <div class="timeline-section">
-                    <h3>Days 51-75: Advanced Applications</h3>
-                    <p>Implement complex algorithms, parallel patterns, and real-world applications</p>
-                    <div class="days-preview">
-                        <div class="day-pill">Day 55: Image Processing</div>
-                        <div class="day-pill">Day 65: Graph Algorithms</div>
-                        <div class="day-pill">Day 70: Physics Simulation</div>
-                    </div>
-                </div>
-                <div class="timeline-section">
-                    <h3>Days 76-100: Expert Topics</h3>
-                    <p>Master advanced CUDA features, interoperability, and build complete applications</p>
-                    <div class="days-preview">
-                        <div class="day-pill">Day 85: Multi-GPU Systems</div>
-                        <div class="day-pill">Day 90: CUDA + Graphics</div>
-                        <div class="day-pill">Day 100: Capstone Project</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta">
-            <div class="cta-content">
-                <h2>Ready to Master CUDA?</h2>
-                <p>Start your 100-day journey to becoming a CUDA expert today</p>
-                <a href="index.html" class="hero-button primary-button">Begin Now</a>
-            </div>
-        </section>
-
-        <footer class="landing-footer">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>100 Days of CUDA</h2>
-                    <p>Master CUDA programming one day at a time</p>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h3>Resources</h3>
-                        <a href="index.html">Dashboard</a>
-                        <a href="#curriculum">Curriculum</a>
-                        <a href="#features">Features</a>
-                    </div>
-                    <div class="link-group">
-                        <h3>Connect</h3>
-                        <a href="https://github.com/" target="_blank">GitHub</a>
-                        <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank">CUDA Documentation</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> 100 Days of CUDA. All rights reserved.</p>
-            </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
         </footer>
     </div>
-
+    
     <script src="js/app.js"></script>
 </body>
 </html> 
