@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupScrollBehavior();
     addHoverEffects();
+    setupViewToggle();
+    animateLandingPage();
     
     // Set copyright year
     document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -11,8 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     if (path.includes('/day-')) {
         loadDayContent();
-    } else {
+    } else if (path.includes('/index.html') || path.endsWith('/')) {
         loadDaysList();
+        loadDaysGrid();
     }
 });
 
@@ -366,4 +369,212 @@ function resolvePath(relativePath) {
     }
     
     return relativePath;
+}
+
+/**
+ * Setup view toggle functionality between list and grid views
+ */
+function setupViewToggle() {
+    const listViewBtn = document.getElementById('list-view');
+    const gridViewBtn = document.getElementById('grid-view');
+    const daysGrid = document.getElementById('days-grid');
+    
+    if (!listViewBtn || !gridViewBtn || !daysGrid) return;
+    
+    listViewBtn.addEventListener('click', () => {
+        if (!listViewBtn.classList.contains('active')) {
+            listViewBtn.classList.add('active');
+            gridViewBtn.classList.remove('active');
+            daysGrid.classList.remove('days-grid');
+            daysGrid.classList.add('days-list-view');
+        }
+    });
+    
+    gridViewBtn.addEventListener('click', () => {
+        if (!gridViewBtn.classList.contains('active')) {
+            gridViewBtn.classList.add('active');
+            listViewBtn.classList.remove('active');
+            daysGrid.classList.add('days-grid');
+            daysGrid.classList.remove('days-list-view');
+        }
+    });
+}
+
+/**
+ * Load days cards for the grid layout
+ */
+async function loadDaysGrid() {
+    try {
+        const daysGrid = document.getElementById('days-grid');
+        if (!daysGrid) return;
+        
+        // Clear any existing content
+        daysGrid.innerHTML = '<div class="loading"></div>';
+        
+        // Fetch days data
+        const dataPath = resolvePath('./data/days.json');
+        const response = await fetch(dataPath);
+        
+        if (!response.ok) {
+            throw new Error(`Failed to load days data: ${response.status} ${response.statusText}`);
+        }
+        
+        const data = await response.json();
+        
+        // Create HTML for grid cards
+        let gridHTML = '';
+        
+        // Get completed days count
+        const completedDays = data.filter(day => !day.title.includes('Coming Soon')).length;
+        const progress = Math.round((completedDays / 100) * 100);
+        
+        // Update progress bar if it exists
+        const progressFill = document.querySelector('.progress-fill');
+        const progressText = document.querySelector('.welcome-card strong');
+        
+        if (progressFill) {
+            progressFill.style.width = `${progress}%`;
+        }
+        
+        if (progressText) {
+            const progressInfoElement = progressText.parentElement;
+            progressInfoElement.innerHTML = `<strong>Progress:</strong> ${completedDays} days completed (${progress}%)`;
+        }
+        
+        // Get days for grid display (first 6 or completed ones)
+        const displayDays = data.filter(day => !day.title.includes('Coming Soon')).slice(0, 6);
+        
+        // Generate HTML for each day card
+        displayDays.forEach(day => {
+            gridHTML += `
+                <div class="day-card" data-day="${day.id}">
+                    <div class="day-card-header">Day ${day.id}</div>
+                    <div class="day-card-body">
+                        <h4 class="day-card-title">${day.title}</h4>
+                        <p class="day-card-description">${day.description}</p>
+                    </div>
+                    <div class="day-card-footer">
+                        <a href="days/day-${day.id}.html" class="view-day-btn">View Day</a>
+                    </div>
+                </div>
+            `;
+        });
+        
+        // Add "View All" card if there are more than 6 completed days
+        if (completedDays > 6) {
+            gridHTML += `
+                <div class="day-card view-all-card">
+                    <div class="day-card-body" style="display: flex; align-items: center; justify-content: center; text-align: center;">
+                        <div>
+                            <h4 class="day-card-title">Explore All Days</h4>
+                            <p class="day-card-description">View all ${completedDays} completed days and continue your CUDA journey</p>
+                            <a href="#days-navigation" class="primary-button">View All Days</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Update the grid
+        daysGrid.innerHTML = gridHTML;
+        
+        // Add hover animation to cards
+        const cards = document.querySelectorAll('.day-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            setTimeout(() => {
+                card.classList.add('float-animation');
+            }, index * 100);
+        });
+        
+    } catch (error) {
+        console.error('Error loading days grid:', error);
+        const daysGrid = document.getElementById('days-grid');
+        if (daysGrid) {
+            daysGrid.innerHTML = `<div class="error-message">Failed to load days data. Please try again later.</div>`;
+        }
+    }
+}
+
+/**
+ * Animate elements on the landing page
+ */
+function animateLandingPage() {
+    // Check if we're on the landing page
+    if (!document.querySelector('.landing-container')) return;
+    
+    // Animate the performance chart bars when they come into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const chart = entry.target;
+                const bars = chart.querySelectorAll('.bar-fill');
+                
+                setTimeout(() => {
+                    bars.forEach(bar => {
+                        const height = bar.style.height;
+                        bar.style.height = '0%';
+                        
+                        setTimeout(() => {
+                            bar.style.height = height;
+                        }, 100);
+                    });
+                }, 300);
+                
+                // Stop observing after animation
+                observer.unobserve(chart);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Observe the chart if it exists
+    const chart = document.querySelector('.performance-chart');
+    if (chart) observer.observe(chart);
+    
+    // Smooth scroll for navigation links
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Animate timeline sections when scrolled into view
+    const timelineSections = document.querySelectorAll('.timeline-section');
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-visible');
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    timelineSections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        sectionObserver.observe(section);
+    });
+    
+    // Add style for visible sections
+    const style = document.createElement('style');
+    style.textContent = `
+        .section-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
 } 

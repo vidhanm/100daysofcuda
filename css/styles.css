@@ -40,6 +40,17 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     transition: background-color 0.3s, color 0.3s;
+    background-image: 
+        radial-gradient(circle at 25px 25px, rgba(128, 128, 128, 0.03) 2%, transparent 0%),
+        radial-gradient(circle at 75px 75px, rgba(128, 128, 128, 0.03) 2%, transparent 0%);
+    background-size: 100px 100px;
+    position: relative;
+}
+
+[data-theme="dark"] body {
+    background-image: 
+        radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.03) 2%, transparent 0%),
+        radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.03) 2%, transparent 0%);
 }
 
 .container {
@@ -205,6 +216,19 @@ main {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+.welcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 4px 4px 0 0;
 }
 
 .welcome-card h2 {
@@ -375,11 +399,12 @@ code {
 
 footer {
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     background-color: var(--bg-card);
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
-    margin-top: 2rem;
+    margin-top: 3rem;
+    background-image: linear-gradient(to right, var(--bg-card), var(--bg-color), var(--bg-card));
 }
 
 /* Error message styles - more modern */
@@ -647,5 +672,324 @@ main > div:hover {
     
     .header-content {
         padding: 0.75rem;
+    }
+}
+
+/* Card Grid Layout */
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.day-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .day-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.day-card-header {
+    background: linear-gradient(120deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.day-card-body {
+    padding: 1.2rem;
+    flex: 1;
+}
+
+.day-card-title {
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.day-card-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.day-card-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.view-day-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.view-day-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.view-options {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.view-toggle {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.view-toggle.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.view-toggle:hover {
+    background-color: var(--bg-color);
+    transform: translateY(-2px);
+}
+
+.view-toggle.active:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Floating animation for cards */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.float-animation {
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Progress indicators */
+.progress-bar {
+    height: 6px;
+    width: 100%;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* Accent decorations */
+.welcome-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 4px 4px 0 0;
+}
+
+.welcome-card {
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+/* Floating animation for cards */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.float-animation {
+    animation: float 5s ease-in-out infinite;
+}
+
+/* Progress indicators */
+.progress-bar {
+    height: 6px;
+    width: 100%;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* Improved footer */
+footer {
+    background-image: linear-gradient(to right, var(--bg-card), var(--bg-color), var(--bg-card));
+    margin-top: 3rem;
+    padding: 2rem 1.5rem;
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+/* List view for days */
+.days-list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.days-list-view .day-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+}
+
+.days-list-view .day-card-header {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px 0 0 12px;
+}
+
+.days-list-view .day-card-body {
+    padding: 1rem;
+    flex: 1;
+}
+
+.days-list-view .day-card-footer {
+    padding: 1rem;
+    border-top: none;
+    border-left: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Section headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.section-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* View All card */
+.view-all-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+}
+
+.view-all-card .day-card-title,
+.view-all-card .day-card-description {
+    color: white;
+}
+
+.view-all-card .primary-button {
+    background-color: white;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.view-all-card .primary-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.4);
+}
+
+/* Days section */
+.days-section {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .days-list-view .day-card {
+        flex-direction: column;
+    }
+    
+    .days-list-view .day-card-header {
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .days-list-view .day-card-footer {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        justify-content: center;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .view-options {
+        width: 100%;
+        justify-content: space-between;
     }
 } 

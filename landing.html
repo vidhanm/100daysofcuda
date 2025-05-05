@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="100 Days of CUDA - Master CUDA programming with daily challenges and examples">
+    <meta name="theme-color" content="#4361ee">
+    <title>100 Days of CUDA - Master GPU Programming</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="landing-container">
+        <header class="landing-header">
+            <div class="header-content">
+                <h1>100 Days of CUDA</h1>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#benefits">Benefits</a>
+                    <a href="#curriculum">Curriculum</a>
+                    <a href="index.html" class="nav-button">Dashboard</a>
+                    <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                        <span class="theme-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Master CUDA Programming in 100 Days</h2>
+                <p>Learn GPU programming with practical CUDA examples through daily challenges and interactive coding environments</p>
+                <div class="hero-buttons">
+                    <a href="index.html" class="hero-button primary-button">Start Learning</a>
+                    <a href="#curriculum" class="hero-button secondary-button">View Curriculum</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="gpu-animation">
+                    <div class="gpu-grid">
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                        <div class="gpu-core"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>100 Daily Challenges</h3>
+                    <p>Structured learning path with progressive difficulty to build your skills day by day</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>Interactive Code Examples</h3>
+                    <p>Every challenge includes runnable code examples in Godbolt or Google Colab</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Practical Projects</h3>
+                    <p>Real-world applications and projects to showcase your CUDA programming skills</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>In-depth Explanations</h3>
+                    <p>Clear explanations of complex CUDA concepts and optimization techniques</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="benefits">
+            <div class="benefits-content">
+                <h2 class="section-title">Why Learn CUDA?</h2>
+                <ul class="benefits-list">
+                    <li>Unlock massive performance gains with GPU parallel computing</li>
+                    <li>Essential skill for AI, machine learning, and scientific computing</li>
+                    <li>High demand in data science and high-performance computing jobs</li>
+                    <li>Enable real-time processing for graphics and simulation applications</li>
+                    <li>Master hardware-accelerated algorithms for complex computations</li>
+                </ul>
+            </div>
+            <div class="benefits-image">
+                <div class="performance-chart">
+                    <div class="chart-bar cpu">
+                        <span class="bar-label">CPU</span>
+                        <div class="bar-fill" style="height: 30%"></div>
+                    </div>
+                    <div class="chart-bar gpu">
+                        <span class="bar-label">GPU</span>
+                        <div class="bar-fill" style="height: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="curriculum" class="curriculum">
+            <h2 class="section-title">Curriculum Overview</h2>
+            <div class="curriculum-timeline">
+                <div class="timeline-section">
+                    <h3>Days 1-25: CUDA Fundamentals</h3>
+                    <p>Learn the basics of CUDA programming, memory management, thread hierarchy, and simple parallel algorithms</p>
+                    <div class="days-preview">
+                        <div class="day-pill">Day 1: Vector Addition</div>
+                        <div class="day-pill">Day 5: Matrix Operations</div>
+                        <div class="day-pill">Day 10: Memory Optimization</div>
+                    </div>
+                </div>
+                <div class="timeline-section">
+                    <h3>Days 26-50: Intermediate Techniques</h3>
+                    <p>Explore shared memory, atomic operations, warp-level primitives, and optimization strategies</p>
+                    <div class="days-preview">
+                        <div class="day-pill">Day 30: Shared Memory</div>
+                        <div class="day-pill">Day 35: Reduction Patterns</div>
+                        <div class="day-pill">Day 45: Performance Profiling</div>
+                    </div>
+                </div>
+                <div class="timeline-section">
+                    <h3>Days 51-75: Advanced Applications</h3>
+                    <p>Implement complex algorithms, parallel patterns, and real-world applications</p>
+                    <div class="days-preview">
+                        <div class="day-pill">Day 55: Image Processing</div>
+                        <div class="day-pill">Day 65: Graph Algorithms</div>
+                        <div class="day-pill">Day 70: Physics Simulation</div>
+                    </div>
+                </div>
+                <div class="timeline-section">
+                    <h3>Days 76-100: Expert Topics</h3>
+                    <p>Master advanced CUDA features, interoperability, and build complete applications</p>
+                    <div class="days-preview">
+                        <div class="day-pill">Day 85: Multi-GPU Systems</div>
+                        <div class="day-pill">Day 90: CUDA + Graphics</div>
+                        <div class="day-pill">Day 100: Capstone Project</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-content">
+                <h2>Ready to Master CUDA?</h2>
+                <p>Start your 100-day journey to becoming a CUDA expert today</p>
+                <a href="index.html" class="hero-button primary-button">Begin Now</a>
+            </div>
+        </section>
+
+        <footer class="landing-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>100 Days of CUDA</h2>
+                    <p>Master CUDA programming one day at a time</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Resources</h3>
+                        <a href="index.html">Dashboard</a>
+                        <a href="#curriculum">Curriculum</a>
+                        <a href="#features">Features</a>
+                    </div>
+                    <div class="link-group">
+                        <h3>Connect</h3>
+                        <a href="https://github.com/" target="_blank">GitHub</a>
+                        <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank">CUDA Documentation</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> 100 Days of CUDA. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html> 

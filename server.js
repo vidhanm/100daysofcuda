@@ -21,11 +21,20 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   console.log('Request URL:', req.url);
   
-  // Default to index.html if the request is for the root
+  // Handle redirects and URL normalization
   let url = req.url;
   
+  // Redirect root to /landing
   if (url === '/') {
-    url = '/index.html';
+    console.log('Redirecting to /landing');
+    res.writeHead(302, { 'Location': '/landing' });
+    res.end();
+    return;
+  }
+  
+  // Handle /landing URL by serving landing.html
+  if (url === '/landing') {
+    url = '/landing.html';
   }
   
   // Handle day URLs without extensions
