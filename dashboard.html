@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="100 Days of CUDA - Learn CUDA programming step by step with daily challenges and examples">
+    <meta name="theme-color" content="#4361ee">
+    <title>100 Days of CUDA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>100 Days of CUDA</h1>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <span class="theme-icon"></span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Days</h2>
+                    <button id="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span class="menu-icon"></span>
+                    </button>
+                </div>
+                <nav id="days-navigation">
+                    <!-- Day links will be generated here -->
+                    <div class="days-list-placeholder">Loading...</div>
+                </nav>
+            </aside>
+            
+            <main>
+                <div class="welcome-card float-animation">
+                    <h2>Welcome to 100 Days of CUDA!</h2>
+                    <p>Master CUDA programming by completing one challenge each day for 100 days.</p>
+                    <p>Each day builds upon the previous one, taking you from basic CUDA concepts to advanced parallel programming techniques.</p>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 16%;"></div>
+                    </div>
+                    <p><strong>Progress:</strong> 16 days completed (16%)</p>
+                    
+                    <a href="days/day-01.html" class="primary-button">Start Day 1</a>
+                </div>
+                
+                <div class="about-section">
+                    <h3>About This Challenge</h3>
+                    <p>The 100 Days of CUDA challenge is designed to help you learn CUDA programming through daily practice. Each day includes:</p>
+                    <ul>
+                        <li>A specific CUDA programming challenge</li>
+                        <li>Practical code examples</li>
+                        <li>Interactive environments to test your code</li>
+                    </ul>
+                    <p>Track your progress as you advance through increasingly complex CUDA concepts.</p>
+                </div>
+                
+                <div class="days-section">
+                    <div class="section-header">
+                        <h3>Browse All Days</h3>
+                        <div class="view-options">
+                            <button id="list-view" class="view-toggle" aria-label="List view">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                                </svg>
+                            </button>
+                            <button id="grid-view" class="view-toggle active" aria-label="Grid view">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="3" width="7" height="7"></rect>
+                                    <rect x="14" y="14" width="7" height="7"></rect>
+                                    <rect x="3" y="14" width="7" height="7"></rect>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="days-grid" class="days-grid">
+                        <!-- Day cards will be loaded here -->
+                        <div class="day-card">
+                            <div class="day-card-header">Day 01</div>
+                            <div class="day-card-body">
+                                <h4 class="day-card-title">vectadd.cu</h4>
+                                <p class="day-card-description">Implemented vector addition by writing a simple CUDA program. Explored how to launch a kernel to perform a parallelized addition of two arrays.</p>
+                            </div>
+                            <div class="day-card-footer">
+                                <a href="days/day-01.html" class="view-day-btn">View Day</a>
+                            </div>
+                        </div>
+                        
+                        <div class="day-card">
+                            <div class="day-card-header">Day 02</div>
+                            <div class="day-card-body">
+                                <h4 class="day-card-title">MatrixAdd.cu</h4>
+                                <p class="day-card-description">Created a matrix addition program using CUDA. Learned to work with 2D arrays and extended the vector addition concept to matrices.</p>
+                            </div>
+                            <div class="day-card-footer">
+                                <a href="days/day-02.html" class="view-day-btn">View Day</a>
+                            </div>
+                        </div>
+                        
+                        <div class="day-card">
+                            <div class="day-card-header">Day 03</div>
+                            <div class="day-card-body">
+                                <h4 class="day-card-title">Matrix_vec_mult.cu</h4>
+                                <p class="day-card-description">Implemented matrix-vector multiplication in CUDA. Explored optimizing memory access patterns and thread cooperation.</p>
+                            </div>
+                            <div class="day-card-footer">
+                                <a href="days/day-03.html" class="view-day-btn">View Day</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center" style="margin-top: 2rem;">
+                        <a href="days/day-01.html" class="primary-button">Start the Challenge</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <p>&copy; <span id="current-year"></span> 100 Days of CUDA</p>
+        </footer>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html> 

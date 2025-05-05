@@ -1,14 +1,14 @@
 {
   "version": 2,
   "name": "100-days-of-cuda",
-  "routes": [
-    { "src": "/dashboard", "dest": "/dashboard.html" },
-    { "src": "/days/day-(\\d+)$", "dest": "/days/day-$1.html" }
+  "rewrites": [
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/days/day-:number", "destination": "/days/day-:number.html" }
   ],
   "trailingSlash": false,
   "headers": [
     {
-      "src": "/(.*)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "src": "/assets/(.*)",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
