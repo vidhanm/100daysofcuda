@@ -24,18 +24,19 @@ const server = http.createServer((req, res) => {
   // Handle redirects and URL normalization
   let url = req.url;
   
-  // Redirect root to /landing
+  // Serve landing.html directly for root URL
   if (url === '/') {
-    console.log('Redirecting to /landing');
-    res.writeHead(302, { 'Location': '/landing' });
-    res.end();
-    return;
+    console.log('Serving landing.html for root URL');
+    url = '/landing.html';
   }
   
   // Handle /landing URL by serving landing.html
   if (url === '/landing') {
     url = '/landing.html';
   }
+  
+  // Debug logging for troubleshooting
+  console.log('Processing URL:', url);
   
   // Handle day URLs without extensions
   if (url.match(/\/days\/day-\d+$/) || url.match(/\/day-\d+$/)) {
