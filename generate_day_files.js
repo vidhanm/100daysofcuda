@@ -184,7 +184,7 @@ const createDayHTML = (dayNumber, content) => {
     <div class="container">
         <header>
             <div class="header-content">
-                <h1><a href="../index.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
+                <h1><a href="../dashboard.html" style="text-decoration: none; color: inherit;">100 Days of CUDA</a></h1>
                 <button id="theme-toggle" aria-label="Toggle dark/light mode">
                     <span class="theme-icon"></span>
                 </button>

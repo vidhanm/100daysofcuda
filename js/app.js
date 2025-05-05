@@ -9,11 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set copyright year
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Determine if we're on a day page or the index page
+    // Determine if we're on a day page or the dashboard page
     const path = window.location.pathname;
     if (path.includes('/day-')) {
         loadDayContent();
-    } else if (path.includes('/index.html') || path.endsWith('/')) {
+    } else if (path.includes('/dashboard.html') || (path.endsWith('/dashboard'))) {
         loadDaysList();
         loadDaysGrid();
     }
