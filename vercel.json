@@ -2,6 +2,7 @@
   "version": 2,
   "name": "100-days-of-cuda",
   "rewrites": [
+    { "source": "/", "destination": "/landing.html" },
     { "source": "/days/:day", "destination": "/days/:day.html" }
   ],
   "trailingSlash": false,
